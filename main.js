@@ -2,7 +2,14 @@ let items = []
 
 function addItem(){
     const itemName = document.querySelector("#item").value
-    console.log(itemName)
+    
+
+    if(itemName ===""){
+        
+            alert("Digite um item valido! ")
+            return
+
+        }
 
     const item = {
         name: itemName,
