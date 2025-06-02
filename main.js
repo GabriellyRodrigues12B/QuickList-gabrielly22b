@@ -1,4 +1,4 @@
-const items = []
+let items = []
 
 function addItem(){
     const itemName = document.querySelector("#item").value
@@ -20,6 +20,8 @@ function showItemsList(){
     sectionList.textContent = ""
 
     items.map((item, index) => {
+
+
         sectionList.innerHTML += `
         <div class="item">
             <div>
@@ -35,6 +37,8 @@ function showItemsList(){
         </div>
         `
     })
+
+    localStorage.setItem("items", JSON.stringify(items))
 }
 
 function removeItem(itemName){
@@ -67,3 +71,16 @@ function checkItem(itemName){
 
     showItemsList()
 }
+
+function verifyLocalStorageItems(){
+
+    const localStorageItems = localStorage.getItem("items")
+
+    if(localStorageItems){
+        items = JSON.parse(localStorageItems)
+        showItemsList()
+        
+    }
+}
+
+verifyLocalStorageItems()
