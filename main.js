@@ -19,6 +19,10 @@ function showItemsList(){
     const sectionList = document.querySelector(".List")
     sectionList.textContent = ""
 
+
+
+    items.sort((itemA, itemB) => Number (itemA.checked) - Number (itemB.checked))
+
     items.map((item, index) => {
 
 
@@ -40,6 +44,9 @@ function showItemsList(){
 
     localStorage.setItem("items", JSON.stringify(items))
 }
+
+
+
 
 function removeItem(itemName){
     const itemIndex = items.findIndex((item) => item.name === itemName)
